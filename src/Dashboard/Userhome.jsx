@@ -5,7 +5,7 @@ const Userhome = () => {
     const { user } = useContext(authContext)
     return (
         <div className='space-y-3 text-center mt-20 w-[80%] mx-auto'>
-            <div className='mb-8'>
+            <div className='mb-8 space-y-2'>
             <img className='w-[100px] h-[100px] rounded-full mx-auto' src={user?.photoURL} alt="profile_picture" />
             <h1 className='text-lg font-medium'>{user?.displayName}</h1>
             </div>
