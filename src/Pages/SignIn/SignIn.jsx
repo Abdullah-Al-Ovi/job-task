@@ -20,7 +20,7 @@ export const SignIn = () => {
         signInUser(email, password)
             .then(() => {
                 e.target.reset()
-                navigate(location?.state ? location?.state : '/dashboard')
+                navigate(location?.state ? location?.state : '/dashboard/userHome')
                 Swal.fire({
                     position: "top",
                     icon: "success",
@@ -42,7 +42,7 @@ export const SignIn = () => {
         setErr('')
         googleSignIn()
             .then(() => {
-                navigate(location?.state ? location?.state : '/dashboard')
+                navigate(location?.state ? location?.state : '/dashboard/userHome')
                 Swal.fire({
                     position: "top",
                     icon: "success",

@@ -31,7 +31,7 @@ export const SignUp = () => {
                 updateUser(data.name, data.link)
                     .then(() => {
                         reset() 
-                        navigate('/dashboard')  
+                        navigate('/dashboard/userHome')  
                         Swal.fire({
                             position: "top",
                             icon: "success",

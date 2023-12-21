@@ -5,6 +5,9 @@ import { Home } from '../Pages/Home/Home';
 import { SignIn } from '../Pages/SignIn/SignIn';
 import { SignUp } from '../Pages/SignUp/SignUp';
 import Dashboard from '../DashBoard/Dashboard';
+import Userhome from '../Dashboard/Userhome';
+import AddTask from '../Dashboard/AddTask';
+import TaskManagement from '../Dashboard/TaskManagement';
 
 
 const Routes = createBrowserRouter([
@@ -28,7 +31,21 @@ const Routes = createBrowserRouter([
     },
     {
         path:'dashboard',
-        element:<Dashboard></Dashboard>
+        element:<Dashboard></Dashboard>,
+        children:[
+            {
+                path:'userHome',
+                element:<Userhome></Userhome>
+            },
+            {
+                path:'addTask',
+                element:<AddTask></AddTask>
+            },
+            {
+                path:'taskManagement',
+                element:<TaskManagement></TaskManagement>
+            }
+        ]
     }
 ])
 export default Routes;
