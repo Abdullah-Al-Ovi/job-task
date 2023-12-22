@@ -1,9 +1,16 @@
-import React from 'react';
+
 import { useForm, Controller } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
 import TimePicker from 'react-time-picker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-time-picker/dist/TimePicker.css';
+import useAxiosPublic from '../Hooks/useAxiosPublic';
+import { useContext } from 'react';
+import { authContext } from '../AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
+
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 const AddTask = () => {
     const {
@@ -13,6 +20,9 @@ const AddTask = () => {
         control,
         formState: { errors },
     } = useForm();
+
+    const axiosPublic = useAxiosPublic()
+    const {user} = useContext(authContext)
 
     const onSubmit = (data) => {
         const year = data.deadlineDate.getFullYear();
@@ -24,9 +34,26 @@ const AddTask = () => {
         const deadlineTime = data?.deadlineTime
         const priority = data?.priority
         const taskInfo ={
-            title,description,deadlineDate,deadlineTime,priority,type : 'To-Do'
+            title,description,deadlineDate,deadlineTime,priority,type : 'To-Do',userEmail:user?.email
         }
-        console.log(taskInfo);
+
+        axiosPublic.post('/addNewTask',taskInfo)
+        .then((res) => {
+            if (res.data?.insertedId) {
+                reset()
+              toast.success("Task added successfully!");
+
+            
+            } else {
+              toast.error("Failed to add task. Please try again.");
+            }
+          })
+          .catch((error) => {
+            console.error('Error adding new task:', error);
+            toast.error("An error occurred. Please try again later.");
+          });
+        
+
     };
 
     return (

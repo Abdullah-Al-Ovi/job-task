@@ -27,25 +27,15 @@ const Footer = () => {
               </p>
 
               <div className="flex gap-4 mt-4 ">
-                <a href="#">
-                  {" "}
-                  <span className="text-2xl text-[#1877F2] ">
-                    <FaFacebook></FaFacebook>
-                  </span>{" "}
-                </a>
-                <a href="#">
-                  {" "}
-                  <span className="text-2xl text-[#1DA1F2]">
-                    <FaTwitter></FaTwitter>
-                  </span>{" "}
-                </a>
-                <a href="#">
+               
+              
+                <a href="https://www.linkedin.com/in/abdullah-al-ovi-7042b12a3/">
                   {" "}
                   <span className="text-2xl text-[#0077B5]">
                     <FaLinkedin></FaLinkedin>
                   </span>{" "}
                 </a>
-                <a href="#">
+                <a href="https://github.com/Abdullah-Al-Ovi">
                   {" "}
                   <span className="text-2xl text-[#181717]">
                     <FaGithub></FaGithub>
@@ -59,11 +49,11 @@ const Footer = () => {
                 <li className="flex items-center gap-2">
                   {" "}
                   <AiFillHome className="text-gray-400"></AiFillHome> Sector-3,
-                  Azampur, Uttara
+                  Mirpue-1, Dhaka
                 </li>
                 <li className="flex items-center gap-2">
                   <AiFillPhone className="text-gray-400"></AiFillPhone>{" "}
-                  +8801316782
+                  +88015336783
                 </li>
                 <li className="flex items-center gap-2">
                   <AiTwotoneMail className="text-gray-400"></AiTwotoneMail>
