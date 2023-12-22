@@ -8,6 +8,7 @@ import Dashboard from '../DashBoard/Dashboard';
 import Userhome from '../Dashboard/Userhome';
 import AddTask from '../Dashboard/AddTask';
 import TaskManagement from '../Dashboard/TaskManagement';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 
 const Routes = createBrowserRouter([
@@ -31,7 +32,7 @@ const Routes = createBrowserRouter([
     },
     {
         path:'dashboard',
-        element:<Dashboard></Dashboard>,
+        element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children:[
             {
                 path:'userHome',

@@ -24,7 +24,7 @@ const AddTask = () => {
         const deadlineTime = data?.deadlineTime
         const priority = data?.priority
         const taskInfo ={
-            title,description,deadlineDate,deadlineTime,priority
+            title,description,deadlineDate,deadlineTime,priority,type : 'To-Do'
         }
         console.log(taskInfo);
     };
@@ -37,8 +37,8 @@ const AddTask = () => {
 
             <section className="flex justify-center items-center shadow-xl rounded-xl p-3 mx-auto bg-slate-100 mt-10">
                 <div className='w-full md:w-[80%]'>
-                    <div className="mt-10 border-2 border-green-800">
-                        <form className='border-2 w-full' onSubmit={handleSubmit(onSubmit)}>
+                    <div className="mt-10 ">
+                        <form className='w-full p-5' onSubmit={handleSubmit(onSubmit)}>
                             <div className="flex flex-col md:flex-col gap-6">
                                 <div className='section-1'>
                                     <div className="form-control">
@@ -46,19 +46,16 @@ const AddTask = () => {
                                         <input
                                             type="text"
                                             {...register('title')}
-                                            placeholder="Enter your product name"
-                                            className="input mt-2 w-full md:w-[330px] "
+                                            placeholder="Title"
+                                            className="input mt-2 w-[250px] md:w-[330px] "
                                         />
                                     </div>
                                 </div>
 
-                                <div className='flex justify-evenly'>
-                                  
-                                        
-
+                                <div className='flex justify-start lg:flex-row flex-col lg:space-x-3 space-y-3 lg:space-y-0'>   
 
                                         <div className="form-control">
-                                        <label>DeadlineD</label>
+                                        <label>Deadline(Date)</label>
                                             <Controller
                                                 control={control}
                                                 name="deadlineDate"
@@ -66,13 +63,13 @@ const AddTask = () => {
                                                     <DatePicker
                                                         selected={field.value}
                                                         onChange={(date) => field.onChange(date)}
-                                                        className="input mt-2 w-full md:w-[170px] "
+                                                        className="input mt-2 w-[250px] md:w-[170px] "
                                                     />
                                                 )}
                                             />
                                         </div>
                                         <div className="form-control">
-                                        <label>Deadlinet</label>
+                                        <label>Deadline(Time)</label>
                                             <Controller
                                                 control={control}
                                                 name="deadlineTime"
@@ -80,7 +77,8 @@ const AddTask = () => {
                                                     <TimePicker
                                                         onChange={(time) => field.onChange(time)}
                                                         value={field.value}
-                                                        className="input mt-2 w-full md:w-[190px] "
+                                                        className="input mt-2
+                                                        w-[250px] md:w-[190px] "
                                                     />
                                                 )}
                                             />
@@ -91,7 +89,7 @@ const AddTask = () => {
                                         <label>Priority</label>
                                         <select
                                             {...register('priority')}
-                                            className="input mt-2 w-full md:w-[180px] "
+                                            className="input mt-2 w-[250px] md:w-[180px] "
                                         >
                                             <option value="">Select Priority</option>
                                             <option value="Low">Low</option>
@@ -102,12 +100,12 @@ const AddTask = () => {
                                 </div>
 
 
-                                <div className="flex flex-col md:flex-col lg:flex-row gap-6 mt-6">
+                                <div className="flex flex-col md:flex-col lg:flex-row gap-6">
                                     <div className="form-control ">
                                         <label>Task Description</label>
                                         <textarea
                                             {...register('description')}
-                                            className="textarea textarea-bordered mt-2  w-full md:w-[390px] "
+                                            className="textarea textarea-bordered mt-2  w-[250px] md:w-[390px] "
                                             placeholder="Description"
                                         ></textarea>
                                     </div>
